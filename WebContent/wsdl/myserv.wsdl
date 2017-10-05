@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="MyServService" targetNamespace="http://myServ" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://myServ" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://myServ" schemaLocation="myserv_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="ConvertMtoKmResponse">
+    <wsdl:part name="parameters" element="tns:ConvertMtoKmResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ConvertMtoKm">
+    <wsdl:part name="parameters" element="tns:ConvertMtoKm">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MyServ">
+    <wsdl:operation name="ConvertMtoKm">
+      <wsdl:input name="ConvertMtoKm" message="tns:ConvertMtoKm">
+    </wsdl:input>
+      <wsdl:output name="ConvertMtoKmResponse" message="tns:ConvertMtoKmResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MyServServiceSoapBinding" type="tns:MyServ">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ConvertMtoKm">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="ConvertMtoKm">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ConvertMtoKmResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MyServService">
+    <wsdl:port name="MyServPort" binding="tns:MyServServiceSoapBinding">
+      <!-- <soap:address location="https://ties4560task2.herokuapp.com:9090/MyServer/services"/>-->
+      <!--  <soap:address location="http://0.0.0.0:9090/MyServer/services"/>-->
+      <soap:address location="http://localhost:9090/MyServer/services"/> 
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,19 @@
+<xs:schema xmlns:tns="http://myServ" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://myServ" version="1.0">
+
+  <xs:element name="ConvertMtoKm" type="tns:ConvertMtoKm"/>
+
+  <xs:element name="ConvertMtoKmResponse" type="tns:ConvertMtoKmResponse"/>
+
+  <xs:complexType name="ConvertMtoKm">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ConvertMtoKmResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
